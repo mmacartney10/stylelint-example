@@ -1,0 +1,12 @@
+.test__item {
+  background: #E2E2E2;
+  padding: 0;
+  background-size: 0, 0; }
+  .test__item + .test {
+    margin-right: 0; }
+  .test__item:before {
+    content: 'test';
+    padding: 0; }
+
+.test {
+  background: #FFF; }
