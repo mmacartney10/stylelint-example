@@ -3,14 +3,26 @@
 	padding: 0;
 	background-size: 0, 0;
 
-	+ .test {
-		margin-right: 0;
-	}
+	//Okay
+
 	&:before {
 		content: 'test';
 		padding: 0;
 	}
+
+	//Wrong
+
+	.thing {
+		background: #FFF;
+	}
+
+	//Okay
+
+	.js & {
+		background: #FFF;
+	}
 }
 
-.test {background: #FFF;
+.test {
+	background: #FFF;
 }

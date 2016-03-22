@@ -15,17 +15,16 @@ var stylelintConfig = require('./stylelint.json')
 
 var processors = [
   stylelint(stylelintConfig),
-  reporter({
-    clearMessages: true,
-    formatter: function (input) {
-      return input.source + ' produced ' + input.messages.length + ' messages'
-    }
-  })
+  reporter({clearMessages: true})
 ]
 
-gulp.task('sass', function () {
+gulp.task('sass:lint', function () {
   return gulp.src('./main.scss')
     .pipe(postcss(processors, { syntax: scss }))
+})
+
+gulp.task('sass', ['sass:lint'], function () {
+  return gulp.src('./main.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./'))
 })
